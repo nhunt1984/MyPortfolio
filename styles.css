@@ -1,0 +1,319 @@
+/* styles.css - fresh site skeleton */
+/*TODO : MOBLE, Dark/light modes, html creature in the about me section*/
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #f3f4f6;
+
+  color: #111827;
+
+  font-size: 18px;
+
+}
+
+.container {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Header */
+.site-header {
+  width: 100%;
+  background: black;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-centered {
+  justify-content: center;
+}
+
+.site-header {
+  padding: 0.5rem 0;
+  
+}
+
+.brand {
+  color: #111827;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.project-subhead {
+  margin: 2px 0 12px;
+  font-size: 1.1rem;
+  /* a bit smaller than the h2 title */
+  font-weight: 600;
+  color: #374151;
+  /* slate-700 */
+  letter-spacing: 0.2px;
+}
+
+/* Optional: subtle divider under the subhead */
+.project-subhead::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 56px;
+  margin-top: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(17, 24, 39, .15), rgba(17, 24, 39, .05));
+}
+
+
+
+
+.site-nav {
+  display: flex;
+  gap: 2.5rem;
+}
+
+/* --- Active Pill Nav Link --- */
+.nav-link {
+  display: inline-block;
+  padding: 6px 12px;
+  /* pill space */
+  border-radius: 999px;
+  /* pill shape */
+  text-decoration: none;
+  color: #ffffff;
+  transition: background .15s ease, color .15s ease;
+}
+
+/* Hover/focus feedback */
+.nav-link:hover,
+.nav-link:focus {
+  text-decoration: none;
+  background: rgba(147, 147, 147, 0.436);
+}
+
+/* Visible keyboard focus */
+.nav-link:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, .35);
+  outline-offset: 2px;
+  border-radius: 999px;
+}
+
+/* The active/current page */
+.nav-link[aria-current="page"],
+.nav-link.active {
+  background: rgba(0, 0, 0, .12);
+  font-weight: 700;
+}
+
+/* Anchor the dropdown under the Projects item */
+.nav-item {
+  position: relative;
+}
+
+/* Keep nav items vertically centered */
+.site-nav {
+  align-items: center;
+}
+
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 2px);
+  /* sits below the Projects pill */
+  left: 0;
+  min-width: 100px;
+  background: #fff;
+  border: 1px solid rgba(17, 24, 39, .12);
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(17, 24, 39, .12);
+  padding: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity .15s ease, transform .15s ease;
+  z-index: 50;
+}
+
+.has-dropdown:hover .dropdown,
+.has-dropdown:focus-within .dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.dropdown-link {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.dropdown-link:hover,
+.dropdown-link:focus {
+  background: rgba(0, 0, 0, .06);
+}
+
+/* Image-based nav icon (kept separate from .nav-link pills) */
+.nav-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  /* outer clickable box size */
+  height: 52px;
+  margin-left: 12px;
+  border-radius: 999px;
+  /* keeps the hit area round/soft */
+  text-decoration: none;
+  transition: transform .15s ease, filter .15s ease;
+}
+
+.nav-icon:hover,
+.nav-icon:focus {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+}
+
+.nav-icon img {
+  display: block;
+  width: 34px;
+  height: 34px;
+}
+
+/* inner logo size */
+
+
+main {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+/* Gallery */
+.upload-area {
+  margin: 1rem 0;
+}
+
+.file-label {
+  background: rgba(17, 24, 39, 0.04);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.file-label input {
+  display: none;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.img-responsive {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(17, 24, 39, 0.12);
+}
+
+/* Resume Embed */
+.resume-embed {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pdf-viewer {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+
+/* About Page */
+
+.about-text {
+  text-indent: 1.5em;
+  text-align: justify;
+  /* straighten both edges */
+  text-justify: inter-word;
+  /* nicer spacing between words */
+  hyphens: auto;
+  /* auto-hyphenate long words */
+  overflow-wrap: anywhere;
+  /* avoid overflow on very long tokens */
+  line-height: 1.7;
+  /* comfy reading */
+  max-width: 70ch;
+  /* readable line length */
+  margin: 0 auto;
+  /* center the block */
+}
+
+.index-text {
+
+  text-align: justify;
+  /* straighten both edges */
+  text-justify: inter-word;
+  /* nicer spacing between words */
+  hyphens: auto;
+  /* auto-hyphenate long words */
+  overflow-wrap: anywhere;
+  /* avoid overflow on very long tokens */
+  line-height: 1.7;
+  /* comfy reading */
+  max-width: 70ch;
+  /* readable line length */
+  margin: 0 auto;
+  /* center the block */
+}
+
+/* --- Project media under sub-header --- */
+.project-media {
+  margin: 5px 0 8px;
+  text-align: center;
+  /* centers the caption; image stays full width */
+}
+
+.project-media img {
+  display: block;
+  width: 100%;
+  max-width: 215px;
+  /* keeps giant images in check */
+  height: auto;
+  /* maintain aspect ratio */
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(17, 24, 39, .10);
+}
+
+.project-media figcaption {
+  font-size: 0.9rem;
+  color: #6b7280;
+  /* gray-500 */
+  margin-top: 8px;
+}
+
+/* Optional: if your source image is very wide & short, keep a gentle max-height */
+@media (min-width: 768px) {
+  .project-media img {
+    max-height: 215px;
+    /* remove if you want no cap */
+    object-fit: contain;
+    /* shows whole image without cropping */
+  }
+}

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nathan's Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner header-centered">
+      <nav class="site-nav" aria-label="Main navigation">
+        <!-- Projects tab with hover dropdown -->
+        <div class="nav-item has-dropdown">
+          <a href="index.html" class="nav-link">Projects</a>
+          <div class="dropdown" role="menu" aria-label="Project shortcuts">
+            <a href="index.html#project_1" class="dropdown-link">Project 1</a>
+            <a href="index.html#project_2" class="dropdown-link">Project 2</a>
+          </div>
+        </div>
+
+        <a href="about.html" class="nav-link">About</a>
+        <a href="resume.html" class="nav-link">Resume</a>
+
+
+        <a href="https://www.linkedin.com/in/nathan-hunt-a6624a30b/" class="nav-icon nav-icon--linkedin" target="_blank"
+          rel="noopener" aria-label="LinkedIn profile (opens in a new tab)" title="LinkedIn">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="" width="34" height="34"
+            /* you can change these */ loading="lazy" decoding="async" />
+        </a>
+
+
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+
+    <script>
+      (function () {
+        // Treat "/" as "index.html"
+        var herePath = location.pathname.replace(/\/+$/, "");
+        var here = (herePath.split("/").pop() || "index.html").toLowerCase();
+
+        document.querySelectorAll("a.nav-link").forEach(function (a) {
+          try {
+            var url = new URL(a.getAttribute("href"), location.href);
+            var target = (url.pathname.replace(/\/+$/, "").split("/").pop() || "index.html").toLowerCase();
+            if (target === here) {
+              a.setAttribute("aria-current", "page"); // accessibility + CSS hook
+              a.classList.add("active");              // CSS hook
+            }
+          } catch (e) {
+            /* ignore malformed hrefs */
+          }
+        });
+      })();
+    </script>
+
+
+    <h1>Welcome To My Portfolio</h1>
+    <p>Here I am displaying all of my projects which I have worked on</p>
+
+    <section id="project_1">
+      <h2>Wrote Drivers for the BNO055</h2>
+    </section>
+
+    <figure class="project-media">
+      <!-- Replace the src with your actual file path -->
+      <img src="images\Project_images\BNO055_Project_Cover.png" alt="Screenshot or photo of Project 1" loading="lazy"
+        decoding="async" />
+      <!-- (Optional) short caption -->
+      <figcaption>Heres a picture displaying the set up</figcaption>
+    </figure>
+    <p class="index-text">Over a weekend I designed a full BNO055 driver using I²C setup, unit selection,
+      power/operation
+      modes, axis remap/sign, and quaternion/Euler/vector reads. I then packaged with CMake for the Pico SDK, linking
+      pico_stdlib and hardware_i2c with USB stdio enabled for logging.
+
+
+
+
+
+
+    <section id="project_2">
+      <h2>Terminal Based Text Editor</h2>
+    </section>
+
+    <figure class="project-media">
+      <!-- Replace the src with your actual file path -->
+      <img src="images\Project_images\Text_editor_P_cover.png" alt="Screenshot or photo of Project 2" loading="lazy"
+        decoding="async" />
+      <!-- (Optional) short caption -->
+      <figcaption>Above is a picture demonstraiting implomentation</figcaption>
+    </figure>
+    <p class="index-text">
+
+      A minimalist terminal text editor in C that reads raw keystrokes and keeps a live on-screen buffer.
+      It uses a linked-list core for near-instant inserts and deletes at the cursor.
+      The code is modular with a clear header/API, boundary checks, and robust error handling.
+      This project showcases low-level I/O, data structures, and performance-minded systems programming.
+    </p>
+
+
+
+
+
+
+  </main>
+</body>
+
+</html>
