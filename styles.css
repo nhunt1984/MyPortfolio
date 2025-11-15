@@ -1,10 +1,16 @@
-/* styles.css - fresh site skeleton */
-/*TODO : MOBLE, Dark/light modes, html creature in the about me section*/
 html,
 body {
   height: 100%;
   margin: 0;
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
 
 body {
   min-height: 100vh;
@@ -29,7 +35,7 @@ body {
   width: 100%;
   background: black;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  
+
 }
 
 .header-inner {
@@ -44,7 +50,7 @@ body {
 
 .site-header {
   padding: 0.5rem 0;
-  
+
 }
 
 .brand {
@@ -308,12 +314,33 @@ main {
   margin-top: 8px;
 }
 
-/* Optional: if your source image is very wide & short, keep a gentle max-height */
 @media (min-width: 768px) {
   .project-media img {
     max-height: 215px;
     /* remove if you want no cap */
     object-fit: contain;
     /* shows whole image without cropping */
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 1.25rem;
+  }
+
+  .header-inner {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .site-nav {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+  }
+
+  .nav-icon {
+    margin-left: 0;
   }
 }
