@@ -8,110 +8,85 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-
-
-<body>
+<body id="top">
   <header class="site-header">
     <div class="container header-inner header-centered">
       <nav class="site-nav" aria-label="Main navigation">
-        <!-- Projects tab with hover dropdown -->
         <div class="nav-item has-dropdown">
           <a href="index.html" class="nav-link">Projects</a>
           <div class="dropdown" role="menu" aria-label="Project shortcuts">
-            <a href="index.html#project_1" class="dropdown-link">Project 1</a>
-            <a href="index.html#project_2" class="dropdown-link">Project 2</a>
+            <a href="#project_1" class="dropdown-link">Project 1</a>
+            <a href="#project_2" class="dropdown-link">Project 2</a>
           </div>
         </div>
 
         <a href="about.html" class="nav-link">About</a>
         <a href="resume.html" class="nav-link">Resume</a>
 
-
-
         <a href="https://www.linkedin.com/in/nathan-hunt-a6624a30b/" class="nav-icon nav-icon--linkedin" target="_blank"
           rel="noopener" aria-label="LinkedIn profile (opens in a new tab)" title="LinkedIn">
           <img src="images/icons/linkedin.svg" alt="" width="34" height="34" loading="lazy" decoding="async" />
         </a>
-
-
       </nav>
     </div>
   </header>
 
   <main class="container">
-
-
-    <script>
-      (function () {
-        // Treat "/" as "index.html"
-        var herePath = location.pathname.replace(/\/+$/, "");
-        var here = (herePath.split("/").pop() || "index.html").toLowerCase();
-
-        document.querySelectorAll("a.nav-link").forEach(function (a) {
-          try {
-            var url = new URL(a.getAttribute("href"), location.href);
-            var target = (url.pathname.replace(/\/+$/, "").split("/").pop() || "index.html").toLowerCase();
-            if (target === here) {
-              a.setAttribute("aria-current", "page"); // accessibility + CSS hook
-              a.classList.add("active");              // CSS hook
-            }
-          } catch (e) {
-            /* ignore malformed hrefs */
-          }
-        });
-      })();
-    </script>
-
-
-    <h1>Welcome To My Portfolio</h1>
-    <p>Here I am displaying the projects I have worked on.</p>
-
-    <section id="project_1">
-      <h2>Wrote Drivers for the BNO055</h2>
+    <section class="hero">
+      <p class="badge">Building thoughtful embedded & systems software</p>
+      <h1>Welcome to my portfolio</h1>
+      <p>I'm Nathan, a computer engineering student who loves pairing low-level rigor with clean, approachable
+        experiences. Explore the projects below to see how I mix embedded drivers, C tooling, and design polish.</p>
+      <div class="hero-badges">
+        <span class="badge">Embedded C</span>
+        <span class="badge">Pico SDK</span>
+        <span class="badge">I²C / Sensors</span>
+        <span class="badge">UI polish</span>
+      </div>
+      <div class="hero-actions">
+        <a class="button" href="#project_1">View featured work</a>
+        <a class="button secondary" href="resume.html">See my resume</a>
+      </div>
     </section>
 
-    <figure class="project-media">
-      <!-- Replace the src with your actual file path -->
-      <img src="images/Project_images/BNO055_Project_Cover.png" alt="Screenshot or photo of Project 1" loading="lazy"
-        decoding="async" />
-      <!-- (Optional) short caption -->
-      <figcaption>Here is a picture displaying the setup.</figcaption>
-    </figure>
-    <p class="index-text">Over a weekend I designed a full BNO055 driver using I²C setup, unit selection,
-      power/operation
-      modes, axis remap/sign, and quaternion/Euler/vector reads. I then packaged with CMake for the Pico SDK, linking
-      pico_stdlib and hardware_i2c with USB stdio enabled for logging.
+    <h2 class="section-heading">Featured Projects</h2>
+    <div class="project-grid">
+      <article id="project_1" class="card">
+        <div class="meta-row">
+          <span class="chip">C · Pico SDK</span>
+          <span class="chip">Drivers</span>
+        </div>
+        <h2>Drivers for the BNO055</h2>
+        <p>Weekend build of a full-featured BNO055 driver with I²C setup, power and operation modes, axis remap/sign,
+          and quaternion/Euler/vector reads. Packaged with CMake for the Pico SDK with USB stdio logging.</p>
+        <figure class="project-media">
+          <img src="images/Project_images/BNO055_Project_Cover.png" alt="Screenshot or photo of the BNO055 project"
+            loading="lazy" decoding="async" />
+          <figcaption class="figcaption">Here is a picture displaying the setup.</figcaption>
+        </figure>
+        <a class="button secondary" href="#project_2">Next project ↓</a>
+      </article>
 
-
-
-
-
-
-    <section id="project_2">
-      <h2>Terminal Based Text Editor</h2>
-    </section>
-
-    <figure class="project-media">
-      <!-- Replace the src with your actual file path -->
-      <img src="images\Project_images\Text_editor_P_cover.png" alt="Screenshot or photo of Project 2" loading="lazy"
-        decoding="async" />
-      <!-- (Optional) short caption -->
-      <figcaption>Above is a picture demonstrating the implementation.</figcaption>
-    </figure>
-    <p class="index-text">
-
-      A minimalist terminal text editor in C that reads raw keystrokes and keeps a live on-screen buffer.
-      It uses a linked-list core for near-instant inserts and deletes at the cursor.
-      The code is modular with a clear header/API, boundary checks, and robust error handling.
-      This project showcases low-level I/O, data structures, and performance-minded systems programming.
-    </p>
-
-
-
-
-
-
+      <article id="project_2" class="card">
+        <div class="meta-row">
+          <span class="chip">C</span>
+          <span class="chip">Terminal UI</span>
+        </div>
+        <h2>Terminal Based Text Editor</h2>
+        <p>A minimalist terminal text editor in C that reads raw keystrokes, keeps a live on-screen buffer, and uses a
+          linked-list core for near-instant inserts and deletes at the cursor. Modular code, clear headers, and robust
+          error handling showcase performance-minded systems programming.</p>
+        <figure class="project-media">
+          <img src="images/Project_images/Text_editor_P_cover.png" alt="Screenshot of the terminal editor"
+            loading="lazy" decoding="async" />
+          <figcaption class="figcaption">Above is a picture demonstrating the implementation.</figcaption>
+        </figure>
+        <a class="button secondary" href="#top">Back to top ↑</a>
+      </article>
+    </div>
   </main>
+
+  <script src="scripts.js"></script>
 </body>
 
 </html>

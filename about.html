@@ -8,14 +8,10 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-
-
-
-<body>
+<body id="top">
   <header class="site-header">
     <div class="container header-inner header-centered">
       <nav class="site-nav" aria-label="Main navigation">
-        <!-- Projects tab with hover dropdown -->
         <div class="nav-item has-dropdown">
           <a href="index.html" class="nav-link">Projects</a>
           <div class="dropdown" role="menu" aria-label="Project shortcuts">
@@ -27,73 +23,48 @@
         <a href="about.html" class="nav-link">About</a>
         <a href="resume.html" class="nav-link">Resume</a>
 
-
         <a href="https://www.linkedin.com/in/nathan-hunt-a6624a30b/" class="nav-icon nav-icon--linkedin" target="_blank"
           rel="noopener" aria-label="LinkedIn profile (opens in a new tab)" title="LinkedIn">
           <img src="images/icons/linkedin.svg" alt="" width="34" height="34" loading="lazy" decoding="async" />
         </a>
-
-
       </nav>
     </div>
   </header>
 
   <main class="container">
+    <section class="hero">
+      <p class="badge">About Nathan</p>
+      <h1>Curious engineer with a systems mindset</h1>
+      <p>I am pursuing a Bachelor of Science in Computer Engineering at the University of Massachusetts Amherst. My
+        toolkit blends software development, hardware prototyping, and electrical systems with a focus on clarity and
+        reliability.</p>
+      <div class="hero-badges">
+        <span class="badge">Embedded</span>
+        <span class="badge">C / C++</span>
+        <span class="badge">Hardware prototyping</span>
+        <span class="badge">Collaboration</span>
+      </div>
+      <div class="hero-actions">
+        <a class="button" href="resume.html">View resume</a>
+        <a class="button secondary" href="index.html">See projects</a>
+      </div>
+    </section>
 
-    <script>
-      (function () {
-        // Treat "/" as "index.html"
-        var herePath = location.pathname.replace(/\/+$/, "");
-        var here = (herePath.split("/").pop() || "index.html").toLowerCase();
-
-        document.querySelectorAll("a.nav-link").forEach(function (a) {
-          try {
-            var url = new URL(a.getAttribute("href"), location.href);
-            var target = (url.pathname.replace(/\/+$/, "").split("/").pop() || "index.html").toLowerCase();
-            if (target === here) {
-              a.setAttribute("aria-current", "page"); // accessibility + CSS hook
-              a.classList.add("active");              // CSS hook
-            }
-          } catch (e) {
-            /* ignore malformed hrefs */
-          }
-        });
-      })();
-    </script>
-
-
-
-
-    <h1>About</h1>
-    <p class="about-text">
-      I am pursuing a Bachelor of Science in Computer Engineering at the University of Massachusetts Amherst, with a
-      strong academic foundation and hands-on experience in software development, hardware prototyping, and electrical
-      systems.
-    </p>
-
-    <p class="about-text">
-      Through my course work I have honed my technical expertise and problem-solving abilities. My hands-on
-      projects include writing drivers for a BNO055, coding a linear regression model to predict housing market trends,
-      and designing interactive educational games using JavaScript.
-    </p>
-    <p class="about-text">
-      Beyond the classroom, I’ve gained practical experience working with student organizations, where I collaborated
-      closely with peers. Recently, I've been
-      working with the UMASS CubeSat Team to research and create a BMS and Power Distribution System, as well as
-      researching PCIe to USB data transmission.
-    </p>
-    <p class="about-text">
-      I enjoy exploring new advancements in technology, experimenting with
-      innovative ideas, and learning about emerging trends in computer engineering. I am excited to connect with
-      like-minded professionals and contribute to impactful projects that push the boundaries of innovation.
-    </p>
-
-
-
-
-
-
+    <section class="card">
+      <h2>What I'm working on</h2>
+      <p class="about-text">Through my coursework I have honed my technical expertise and problem-solving abilities. My
+        hands-on projects include writing drivers for a BNO055, coding a linear regression model to predict housing
+        market trends, and designing interactive educational games using JavaScript.</p>
+      <p class="about-text">Beyond the classroom, I’ve gained practical experience working with student organizations,
+        where I collaborated closely with peers. Recently, I've been working with the UMASS CubeSat Team to research and
+        create a BMS and Power Distribution System, as well as researching PCIe to USB data transmission.</p>
+      <p class="about-text">I enjoy exploring new advancements in technology, experimenting with innovative ideas, and
+        learning about emerging trends in computer engineering. I am excited to connect with like-minded professionals
+        and contribute to impactful projects that push the boundaries of innovation.</p>
+    </section>
   </main>
+
+  <script src="scripts.js"></script>
 </body>
 
 </html>

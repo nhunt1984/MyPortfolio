@@ -8,14 +8,10 @@
     <link rel="stylesheet" href="styles.css" />
 </head>
 
-
-
-
-<body>
+<body id="top">
     <header class="site-header">
         <div class="container header-inner header-centered">
             <nav class="site-nav" aria-label="Main navigation">
-                <!-- Projects tab with hover dropdown -->
                 <div class="nav-item has-dropdown">
                     <a href="index.html" class="nav-link">Projects</a>
                     <div class="dropdown" role="menu" aria-label="Project shortcuts">
@@ -27,7 +23,6 @@
                 <a href="about.html" class="nav-link">About</a>
 
                 <a href="resume.html" class="nav-link">Resume</a>
-
 
                 <a href="https://www.linkedin.com/in/nathan-hunt-a6624a30b/" class="nav-icon nav-icon--linkedin"
                     target="_blank" rel="noopener" aria-label="LinkedIn profile (opens in a new tab)" title="LinkedIn">
@@ -41,34 +36,18 @@
     </header>
 
     <main class="container">
+        <section class="hero">
+            <p class="badge">Resume</p>
+            <h1>Experience & education at a glance</h1>
+            <p>Download my resume for a deeper dive into my coursework, hands-on projects, and professional experience.
+            </p>
+            <div class="hero-actions">
+                <a class="button" href="images/Resume/Resume.pdf" download>Download PDF</a>
+                <a class="button secondary" href="#resume-image">Preview below</a>
+            </div>
+        </section>
 
-
-
-        <script>
-            (function () {
-                // Treat "/" as "index.html"
-                var herePath = location.pathname.replace(/\/+$/, "");
-                var here = (herePath.split("/").pop() || "index.html").toLowerCase();
-
-                document.querySelectorAll("a.nav-link").forEach(function (a) {
-                    try {
-                        var url = new URL(a.getAttribute("href"), location.href);
-                        var target = (url.pathname.replace(/\/+$/, "").split("/").pop() || "index.html").toLowerCase();
-                        if (target === here) {
-                            a.setAttribute("aria-current", "page"); // accessibility + CSS hook
-                            a.classList.add("active");              // CSS hook
-                        }
-                    } catch (e) {
-                        /* ignore malformed hrefs */
-                    }
-                });
-            })();
-        </script>
-
-        <h1>Resume</h1>
-
-
-        <div class="resume-embed">
+        <div class="resume-embed" id="resume-image">
             <p><a href="images/Resume/Resume.pdf" download>DOWNLOAD HERE</a></p>
 
             <a href="images/Resume/Resume.png" target="_blank" rel="noopener">
@@ -76,8 +55,8 @@
             </a>
         </div>
 
-
     </main>
+    <script src="scripts.js"></script>
 </body>
 
 </html>
