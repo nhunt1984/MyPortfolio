@@ -13,8 +13,8 @@
 <body>
   <header class="site-header">
     <div class="container header-inner header-centered">
+      <div class="brand-mark">Nathan Hunt</div>
       <nav class="site-nav" aria-label="Main navigation">
-        <!-- Projects tab with hover dropdown -->
         <div class="nav-item has-dropdown">
           <a href="index.html" class="nav-link">Projects</a>
           <div class="dropdown" role="menu" aria-label="Project shortcuts">
@@ -22,96 +22,128 @@
             <a href="index.html#project_2" class="dropdown-link">Project 2</a>
           </div>
         </div>
-
         <a href="about.html" class="nav-link">About</a>
         <a href="resume.html" class="nav-link">Resume</a>
-
-
-
         <a href="https://www.linkedin.com/in/nathan-hunt-a6624a30b/" class="nav-icon nav-icon--linkedin" target="_blank"
           rel="noopener" aria-label="LinkedIn profile (opens in a new tab)" title="LinkedIn">
           <img src="images/icons/linkedin.svg" alt="" width="34" height="34" loading="lazy" decoding="async" />
         </a>
-
-
       </nav>
     </div>
   </header>
 
-  <main class="container">
+  <main class="container page-shell">
+    <section class="hero">
+      <div class="hero-copy">
 
+        <h1>Welcome to My Portfolio</h1>
+        <p class="lead">I build reliable firmware, playful terminal tools, and polished experiences. Explore a few of my
+          recent projects below.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="resume.html">View Resume</a>
+          <a class="btn btn-ghost" href="about.html">About Me</a>
+          <a class="btn btn-ghost" target="_blank" href="https://github.com/nhunt1984">My GitHub</a>
+        </div>
+        <dl class="hero-stats" aria-label="Quick stats">
+          <div class="stat">
+            <dt>Core languages</dt>
+            <dd>C, C++, Python, JavaScript</dd>
+          </div>
+          <div class="stat">
+            <dt>Hardware</dt>
+            <dd>Raspberry Pi Pico, BNO055 IMU</dd>
+          </div>
+          <div class="stat">
+            <dt>Focus</dt>
+            <dd>Drivers, tooling, developer UX</dd>
+          </div>
+        </dl>
+      </div>
 
-    <script>
-      (function () {
-        // Treat "/" as "index.html"
-        var herePath = location.pathname.replace(/\/+$/, "");
-        var here = (herePath.split("/").pop() || "index.html").toLowerCase();
-
-        document.querySelectorAll("a.nav-link").forEach(function (a) {
-          try {
-            var url = new URL(a.getAttribute("href"), location.href);
-            var target = (url.pathname.replace(/\/+$/, "").split("/").pop() || "index.html").toLowerCase();
-            if (target === here) {
-              a.setAttribute("aria-current", "page"); // accessibility + CSS hook
-              a.classList.add("active");              // CSS hook
-            }
-          } catch (e) {
-            /* ignore malformed hrefs */
-          }
-        });
-      })();
-    </script>
-
-
-    <h1>Welcome To My Portfolio</h1>
-    <p>Here I am displaying the projects I have worked on.</p>
-
-    <section id="project_1">
-      <h2>Wrote Drivers for the BNO055</h2>
     </section>
 
-    <figure class="project-media">
-      <!-- Replace the src with your actual file path -->
-      <img src="images/Project_images/BNO055_Project_Cover.png" alt="Screenshot or photo of Project 1" loading="lazy"
-        decoding="async" />
-      <!-- (Optional) short caption -->
-      <figcaption>Here is a picture displaying the setup.</figcaption>
-    </figure>
-    <p class="index-text">Over a weekend I designed a full BNO055 driver using I²C setup, unit selection,
-      power/operation
-      modes, axis remap/sign, and quaternion/Euler/vector reads. I then packaged with CMake for the Pico SDK, linking
-      pico_stdlib and hardware_i2c with USB stdio enabled for logging.
+    <section class="projects" aria-label="Highlighted projects">
+      <div class="section-header">
+        <p class="eyebrow">Projects</p>
+        <h2>Hands-on builds that blend hardware and developer ergonomics</h2>
+        <p class="lead">A snapshot of weekend experiments and polished utilities I use to hone my skills.
+        </p>
+      </div>
 
+      <div class="project-grid">
+        <article class="project-card" id="project_1">
+          <div class="card-meta">
+            <span class="pill">Embedded systems : </span>
+            <span class="pill pill-secondary">C++ / CMake</span>
+          </div>
+          <div class="project-body">
+            <div>
+              <h3>Wrote drivers for the BNO055</h3>
+              <p>Designed a complete BNO055 driver that configures I²C, unit selection, operation modes, axis
+                remap/sign,
+                and quaternion/Euler/vector reads. Packaged with CMake for the Pico SDK and tuned USB stdio logging to
+                keep iteration fast.</p>
+              <ul class="pill-list" aria-label="Key capabilities">
+                <li>Axis remap + calibration helpers</li>
+                <li>Power/operation mode toggles</li>
+                <li>Quaternions, Euler, and vector outputs</li>
+              </ul>
+            </div>
+            <figure class="project-media">
+              <img src="images/Project_images/BNO055_Project_Cover.png"
+                alt="Breadboard and BNO055 wired to a microcontroller" loading="lazy" decoding="async" />
+              <figcaption>Weekend driver build ready for flight tests.</figcaption>
+            </figure>
+          </div>
+        </article>
 
-
-
-
-
-    <section id="project_2">
-      <h2>Terminal Based Text Editor</h2>
+        <article class="project-card" id="project_2">
+          <div class="card-meta">
+            <span class="pill">Systems programming :</span>
+            <span class="pill pill-secondary">C</span>
+          </div>
+          <div class="project-body">
+            <div>
+              <h3>Terminal-based text editor</h3>
+              <p>A minimalist text editor that reads raw keystrokes, maintains a live on-screen buffer, and uses a
+                linked-list core for near-instant inserts and deletes at the cursor. Built with careful boundary checks
+                and a clean header/API for easy extension.</p>
+              <ul class="pill-list" aria-label="Key capabilities">
+                <li>Raw terminal input with responsive redraws</li>
+                <li>Linked-list core for smooth cursor edits</li>
+                <li>Modular architecture with robust error handling</li>
+              </ul>
+            </div>
+            <figure class="project-media">
+              <img src="images/Project_images/Text_editor_P_cover.png"
+                alt="Terminal window showcasing the C text editor" loading="lazy" decoding="async" />
+              <figcaption>Clean command-line writing experience.</figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
     </section>
-
-    <figure class="project-media">
-      <!-- Replace the src with your actual file path -->
-      <img src="images\Project_images\Text_editor_P_cover.png" alt="Screenshot or photo of Project 2" loading="lazy"
-        decoding="async" />
-      <!-- (Optional) short caption -->
-      <figcaption>Above is a picture demonstrating the implementation.</figcaption>
-    </figure>
-    <p class="index-text">
-
-      A minimalist terminal text editor in C that reads raw keystrokes and keeps a live on-screen buffer.
-      It uses a linked-list core for near-instant inserts and deletes at the cursor.
-      The code is modular with a clear header/API, boundary checks, and robust error handling.
-      This project showcases low-level I/O, data structures, and performance-minded systems programming.
-    </p>
-
-
-
-
-
-
   </main>
+
+  <script>
+    (function () {
+      var herePath = location.pathname.replace(/\/+$/, "");
+      var here = (herePath.split("/").pop() || "index.html").toLowerCase();
+
+      document.querySelectorAll("a.nav-link").forEach(function (a) {
+        try {
+          var url = new URL(a.getAttribute("href"), location.href);
+          var target = (url.pathname.replace(/\/+$/, "").split("/").pop() || "index.html").toLowerCase();
+          if (target === here) {
+            a.setAttribute("aria-current", "page");
+            a.classList.add("active");
+          }
+        } catch (e) {
+          /* ignore malformed hrefs */
+        }
+      });
+    })();
+  </script>
 </body>
 
 </html>
