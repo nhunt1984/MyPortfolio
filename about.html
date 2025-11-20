@@ -9,6 +9,24 @@
 </head>
 
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.slideshow .slide');
+    let currentIndex = 0;
+    const delay = 3000; // 3000ms = 3 seconds per image
+
+    if (slides.length === 0) return;
+
+    setInterval(() => {
+      // hide current
+      slides[currentIndex].classList.remove('active');
+      // move to next
+      currentIndex = (currentIndex + 1) % slides.length;
+      // show next
+      slides[currentIndex].classList.add('active');
+    }, delay);
+  });
+</script>
 
 
 <body>
@@ -41,10 +59,16 @@
 
   <main class="container">
     <header class="section-header">
-      <p class="eyebrow">About</p>
-      <h1 class="page-title">Curious, collaborative, and hands-on</h1>
-      <p class="page-intro">I thrive at the intersection of firmware, hardware prototyping, and thoughtful developer
-        experience—balancing low-level rigor with a polished end product.</p>
+      <img src="images/personal/Picture1.png" class="picOme" alt="picture1">
+      <p class="page-title">About Me</p>
+
+      <!--
+      <div class="slideshow">
+        <img src="images/personal/pic1" class="slide active" alt="picture 1">
+        <img src="images/personal/pic2" class="slide" alt="picture 2">
+        <img src="images/personal/pic3" class="slide" alt="picture 3">
+      </div>
+      -->
     </header>
 
     <div class="page-card">

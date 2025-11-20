@@ -3,18 +3,20 @@
 }
 
 :root {
-  --bg: radial-gradient(circle at 20% 20%, rgba(45, 212, 191, 0.08), transparent 25%),
-    radial-gradient(circle at 80% 0%, rgba(59, 130, 246, 0.08), transparent 28%),
-    #0b1220;
+  --bg: white;
+  /*linear-gradient(130deg, #1950c0, #6a2aaf)*/
+  --header: black;
   --card: rgba(255, 255, 255, 0.06);
   --stroke: rgba(255, 255, 255, 0.12);
-  --text: #e5e7eb;
-  --muted: #9ca3af;
+  --text: Black;
+  --muted: Black;
   --accent: #60a5fa;
   --accent-2: #22d3ee;
-  --pill-bg: rgba(255, 255, 255, 0.1);
+  --pill-txt: black;
+  --banner-bg: linear-gradient(150deg, #22d3ee, #a863f1);
+  --pill-bg: linear-gradient(135deg, #22d3ee, #6366f1);
   --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html,
@@ -35,6 +37,7 @@ body {
 .container {
   width: 100%;
   max-width: 1100px;
+  
   margin: 0 auto;
   padding: 2.5rem 1.5rem 3rem;
 }
@@ -47,7 +50,7 @@ body {
 
 .site-header {
   width: 100%;
-  background: rgba(12, 19, 35, 0.8);
+  background: var(--header);
   border-bottom: 1px solid var(--stroke);
   backdrop-filter: blur(12px);
   position: sticky;
@@ -187,18 +190,19 @@ body {
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  font-size: 0.75rem;
-  color: var(--accent);
+  font-size: x-large;
+  color: var(--text);
   margin: 0;
 }
 
 .lead {
   margin: 0;
+
 }
 
 .hero-actions {
-  display: flex;
   gap: 0.75rem;
+
   flex-wrap: wrap;
   margin: 0.5rem 0 1.25rem;
 }
@@ -224,12 +228,12 @@ body {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #22d3ee, #6366f1);
+  background: var(--pill-bg);
   border: none;
 }
 
 .btn-ghost {
-  background: transparent;
+  background: var(--pill-bg);
 }
 
 .hero-stats {
@@ -240,7 +244,7 @@ body {
   padding: 1rem;
   border-radius: 16px;
   border: 1px solid var(--stroke);
-  background: linear-gradient(150deg, rgba(34, 211, 238, 0.08), rgba(96, 165, 250, 0.04));
+  background: var(--banner-bg);
 }
 
 .stat {
@@ -278,15 +282,15 @@ body {
   padding: 0.35rem 0.7rem;
   border-radius: 999px;
   background: var(--pill-bg);
-  color: #fff;
+  color: var(--pill-txt);
   font-weight: 600;
   border: 1px solid var(--stroke);
   font-size: 0.9rem;
 }
 
 .pill-secondary {
-  background: rgba(96, 165, 250, 0.12);
-  border-color: rgba(96, 165, 250, 0.6);
+  background: var(--pill-bg);
+  border-color: none;
 }
 
 .panel-body {
@@ -315,14 +319,22 @@ body {
   font-weight: 600;
 }
 
+.section-header {
+  align-content: center;
+}
+
 .section-header h2 {
   margin: 0.25rem 0;
+  text-align: center;
   font-size: clamp(1.7rem, 2.4vw, 2rem);
 }
 
 .section-header .lead {
   color: var(--muted);
+
+  text-align: center;
   max-width: 70ch;
+  margin: 0 auto;
 }
 
 .projects {
@@ -379,8 +391,9 @@ body {
 .pill-list li {
   padding: 0.4rem 0.75rem;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--stroke);
+  background: var(--pill-bg);
+  border: none;
+  ;
 }
 
 /* inner logo size */
@@ -388,7 +401,7 @@ body {
 
 main {
   padding: 2rem 0;
-  text-align: center;
+  text-align:center;
 }
 
 /* Gallery */
@@ -437,6 +450,40 @@ main {
 
 /* About Page */
 
+.slideshow {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.slideshow .slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+.picOme{
+  position: relative;
+  max-width: 200px;
+  width: auto;
+  height: auto;
+  border-radius:50%;
+  box-shadow: var(--shadow);
+  
+}
+/* The currently visible image */
+.slideshow .slide.active {
+  opacity: 1;
+}
+
+
 .about-text {
   text-indent: 1.5em;
   text-align: justify;
@@ -483,7 +530,7 @@ main {
 .project-media img {
   display: block;
   width: 100%;
-  max-width: 215px;
+  max-width: 400px;
   /* keeps giant images in check */
   height: auto;
   /* maintain aspect ratio */
@@ -506,13 +553,15 @@ main {
 
 .page-intro {
   color: var(--muted);
+  align-self: center;
   margin: 0 0 1.5rem;
-  max-width: 72ch;
+  /*max-width: 72ch*/;
 }
 
 .page-card {
   background: var(--card);
   border: 1px solid var(--stroke);
+  /*margin-top: 700px;*/
   border-radius: 16px;
   padding: 1.2rem 1.4rem;
   box-shadow: var(--shadow);
@@ -527,7 +576,7 @@ main {
 }
 
 .resume-embed a {
-  color: #93c5fd;
+  color: white;
 }
 
 @media (min-width: 768px) {
@@ -545,6 +594,7 @@ main {
   }
 
   .header-inner {
+    align-content: center;
     flex-wrap: wrap;
     gap: 1rem;
   }
