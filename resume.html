@@ -14,6 +14,7 @@
 <body>
     <header class="site-header">
         <div class="container header-inner header-centered">
+            <div class="brand-mark">Nathan Hunt</div>
             <nav class="site-nav" aria-label="Main navigation">
                 <!-- Projects tab with hover dropdown -->
                 <div class="nav-item has-dropdown">
@@ -41,43 +42,41 @@
     </header>
 
     <main class="container">
+        <header class="section-header">
+            <p class="eyebrow">Resume</p>
+            <h1 class="page-title">Experience at a glance</h1>
+            <p class="page-intro">Download a PDF or peek at the embedded preview to see coursework, internships, and
+                project highlights.</p>
+        </header>
 
-
-
-        <script>
-            (function () {
-                // Treat "/" as "index.html"
-                var herePath = location.pathname.replace(/\/+$/, "");
-                var here = (herePath.split("/").pop() || "index.html").toLowerCase();
-
-                document.querySelectorAll("a.nav-link").forEach(function (a) {
-                    try {
-                        var url = new URL(a.getAttribute("href"), location.href);
-                        var target = (url.pathname.replace(/\/+$/, "").split("/").pop() || "index.html").toLowerCase();
-                        if (target === here) {
-                            a.setAttribute("aria-current", "page"); // accessibility + CSS hook
-                            a.classList.add("active");              // CSS hook
-                        }
-                    } catch (e) {
-                        /* ignore malformed hrefs */
-                    }
-                });
-            })();
-        </script>
-
-        <h1>Resume</h1>
-
-
-        <div class="resume-embed">
-            <p><a href="images/Resume/Resume.pdf" download>DOWNLOAD HERE</a></p>
+        <div class="page-card resume-embed">
+            <p><a href="images/Resume/Resume.pdf" download>Download PDF</a></p>
 
             <a href="images/Resume/Resume.png" target="_blank" rel="noopener">
                 <img src="images/Resume/Resume.png" alt="My resume" class="img-responsive" />
             </a>
         </div>
-
-
     </main>
+
+    <script>
+        (function () {
+            var herePath = location.pathname.replace(/\/+$/, "");
+            var here = (herePath.split("/").pop() || "index.html").toLowerCase();
+
+            document.querySelectorAll("a.nav-link").forEach(function (a) {
+                try {
+                    var url = new URL(a.getAttribute("href"), location.href);
+                    var target = (url.pathname.replace(/\/+$/, "").split("/").pop() || "index.html").toLowerCase();
+                    if (target === here) {
+                        a.setAttribute("aria-current", "page");
+                        a.classList.add("active");
+                    }
+                } catch (e) {
+                    /* ignore malformed hrefs */
+                }
+            });
+        })();
+    </script>
 </body>
 
 </html>
