@@ -377,6 +377,7 @@ body {
 
 .project-card p {
   color: var(--muted);
+  text-align: left;
 }
 
 .pill-list {
@@ -536,7 +537,7 @@ main {
   /* maintain aspect ratio */
   margin: 0 auto;
   border-radius: 8px;
-  box-shadow: 0 6px 12px rgba(17, 24, 39, .10);
+  
 }
 
 .project-media figcaption {
