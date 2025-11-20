@@ -39,29 +39,35 @@
   </header>
 
   <main class="container">
+    <section class="theme-lab card-surface" id="theme-lab" aria-labelledby="theme-lab-title">
+      <div class="theme-lab__header">
+        <div>
+          <div class="theme-lab__eyebrow">Appearance</div>
+          <h2 class="theme-lab__title" id="theme-lab-title">Light / Dark mode preview</h2>
+        </div>
+        <button class="theme-toggle-button" type="button" data-theme-toggle>Switch to dark mode</button>
+      </div>
+      <p class="theme-lab__blurb">Preview both themes and apply instantly. Your choice is saved for your next visit.</p>
+      <div class="theme-lab__previews" role="group" aria-label="Theme preview cards">
+        <button class="theme-preview theme-preview--light" type="button" data-theme-choice="light">
+          <span class="theme-preview__badge">Light</span>
+          <span class="theme-preview__body">
+            <span class="theme-preview__bar" aria-hidden="true"></span>
+            <span class="theme-preview__bar" aria-hidden="true"></span>
+            <span class="theme-preview__bar" aria-hidden="true"></span>
+          </span>
+        </button>
 
-
-    <script>
-      (function () {
-        // Treat "/" as "index.html"
-        var herePath = location.pathname.replace(/\/+$/, "");
-        var here = (herePath.split("/").pop() || "index.html").toLowerCase();
-
-        document.querySelectorAll("a.nav-link").forEach(function (a) {
-          try {
-            var url = new URL(a.getAttribute("href"), location.href);
-            var target = (url.pathname.replace(/\/+$/, "").split("/").pop() || "index.html").toLowerCase();
-            if (target === here) {
-              a.setAttribute("aria-current", "page"); // accessibility + CSS hook
-              a.classList.add("active");              // CSS hook
-            }
-          } catch (e) {
-            /* ignore malformed hrefs */
-          }
-        });
-      })();
-    </script>
-
+        <button class="theme-preview theme-preview--dark" type="button" data-theme-choice="dark">
+          <span class="theme-preview__badge">Dark</span>
+          <span class="theme-preview__body">
+            <span class="theme-preview__bar" aria-hidden="true"></span>
+            <span class="theme-preview__bar" aria-hidden="true"></span>
+            <span class="theme-preview__bar" aria-hidden="true"></span>
+          </span>
+        </button>
+      </div>
+    </section>
 
     <h1>Welcome To My Portfolio</h1>
     <p>Here I am displaying the projects I have worked on.</p>
@@ -112,6 +118,7 @@
 
 
   </main>
+  <script src="script.js"></script>
 </body>
 
 </html>
