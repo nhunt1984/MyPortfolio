@@ -211,6 +211,8 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  margin-left: 10px;
+  margin-right: 10px;
   gap: 0.4rem;
   padding: 0.7rem 1.1rem;
   border-radius: 12px;
