@@ -4,7 +4,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Resume — My Site</title>
+
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+
+    <title>Nathan's Portfolio</title>
     <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -31,9 +35,9 @@
 
 
                 <a href="https://www.linkedin.com/in/nathan-hunt-a6624a30b/" class="nav-icon nav-icon--linkedin"
-                    target="_blank" rel="noopener" aria-label="LinkedIn profile (opens in a new tab)" title="LinkedIn">
-                    <img src="images/icons/linkedin.svg" alt="" width="34" height="34" loading="lazy"
-                        decoding="async" />
+                    target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)"
+                    title="LinkedIn">
+
                 </a>
 
             </nav>
@@ -58,25 +62,7 @@
         </div>
     </main>
 
-    <script>
-        (function () {
-            var herePath = location.pathname.replace(/\/+$/, "");
-            var here = (herePath.split("/").pop() || "index.html").toLowerCase();
-
-            document.querySelectorAll("a.nav-link").forEach(function (a) {
-                try {
-                    var url = new URL(a.getAttribute("href"), location.href);
-                    var target = (url.pathname.replace(/\/+$/, "").split("/").pop() || "index.html").toLowerCase();
-                    if (target === here) {
-                        a.setAttribute("aria-current", "page");
-                        a.classList.add("active");
-                    }
-                } catch (e) {
-                    /* ignore malformed hrefs */
-                }
-            });
-        })();
-    </script>
+    <script src="nav.js"></script>
 </body>
 
 </html>

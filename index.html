@@ -4,6 +4,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+
   <title>Nathan's Portfolio</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -25,7 +29,7 @@
         <a href="about.html" class="nav-link">About</a>
         <a href="resume.html" class="nav-link">Resume</a>
         <a href="https://www.linkedin.com/in/nathan-hunt-a6624a30b/" class="nav-icon nav-icon--linkedin" target="_blank"
-          rel="noopener" aria-label="LinkedIn profile (opens in a new tab)" title="LinkedIn">
+          rel="noopener noreferrer aria-label=" LinkedIn profile (opens in a new tab)" title="LinkedIn">
           <img src="images/icons/linkedin.svg" alt="" width="34" height="34" loading="lazy" decoding="async" />
         </a>
       </nav>
@@ -43,7 +47,8 @@
           <a class="btn btn-primary" href="about.html">About Me</a>
           <a class="btn btn-ghost" href="resume.html">View Resume</a>
 
-          <a class="btn btn-ghost" target="_blank" href="https://github.com/nhunt1984">My GitHub</a>
+          <a class="btn btn-ghost" target="_blank" rel="noopener noreferrer" href="https://github.com/nhunt1984">My
+            GitHub</a>
         </div>
         <dl class="hero-stats" aria-label="Quick stats">
           <div class="stat">
@@ -126,25 +131,7 @@
     </section>
   </main>
 
-  <script>
-    (function () {
-      var herePath = location.pathname.replace(/\/+$/, "");
-      var here = (herePath.split("/").pop() || "index.html").toLowerCase();
-
-      document.querySelectorAll("a.nav-link").forEach(function (a) {
-        try {
-          var url = new URL(a.getAttribute("href"), location.href);
-          var target = (url.pathname.replace(/\/+$/, "").split("/").pop() || "index.html").toLowerCase();
-          if (target === here) {
-            a.setAttribute("aria-current", "page");
-            a.classList.add("active");
-          }
-        } catch (e) {
-          /* ignore malformed hrefs */
-        }
-      });
-    })();
-  </script>
+  <script src="nav.js"></script>
 </body>
 
 </html>

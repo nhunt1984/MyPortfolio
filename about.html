@@ -4,29 +4,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About — My Site</title>
+
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+
+  <title>Nathan's Portfolio</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
-
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const slides = document.querySelectorAll('.slideshow .slide');
-    let currentIndex = 0;
-    const delay = 3000; // 3000ms = 3 seconds per image
-
-    if (slides.length === 0) return;
-
-    setInterval(() => {
-      // hide current
-      slides[currentIndex].classList.remove('active');
-      // move to next
-      currentIndex = (currentIndex + 1) % slides.length;
-      // show next
-      slides[currentIndex].classList.add('active');
-    }, delay);
-  });
-</script>
 
 
 <body>
@@ -62,13 +46,6 @@
       <img src="images/personal/Picture1.png" class="picOme" alt="picture1">
       <p class="page-title">About Me</p>
 
-      <!--
-      <div class="slideshow">
-        <img src="images/personal/pic1" class="slide active" alt="picture 1">
-        <img src="images/personal/pic2" class="slide" alt="picture 2">
-        <img src="images/personal/pic3" class="slide" alt="picture 3">
-      </div>
-      -->
     </header>
 
     <div class="page-card">
@@ -96,25 +73,8 @@
     </div>
   </main>
 
-  <script>
-    (function () {
-      var herePath = location.pathname.replace(/\/+$/, "");
-      var here = (herePath.split("/").pop() || "index.html").toLowerCase();
+  <script src="nav.js"></script>
 
-      document.querySelectorAll("a.nav-link").forEach(function (a) {
-        try {
-          var url = new URL(a.getAttribute("href"), location.href);
-          var target = (url.pathname.replace(/\/+$/, "").split("/").pop() || "index.html").toLowerCase();
-          if (target === here) {
-            a.setAttribute("aria-current", "page");
-            a.classList.add("active");
-          }
-        } catch (e) {
-          /* ignore malformed hrefs */
-        }
-      });
-    })();
-  </script>
 </body>
 
 </html>
