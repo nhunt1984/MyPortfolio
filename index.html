@@ -22,8 +22,8 @@
         <div class="nav-item has-dropdown">
           <a href="index.html" class="nav-link">Projects</a>
           <div class="dropdown" role="menu" aria-label="Project shortcuts">
-            <a href="index.html#project_1" class="dropdown-link">Project 1</a>
-            <a href="index.html#project_2" class="dropdown-link">Project 2</a>
+            <a href="index.html#project_1" class="dropdown-link">BNO055 Drivers</a>
+            <a href="index.html#project_2" class="dropdown-link">Terminal-Based Text Editor</a>
           </div>
         </div>
         <a href="about.html" class="nav-link">About</a>
@@ -41,8 +41,9 @@
       <div class="hero-copy">
 
         <h1>Welcome to My Portfolio</h1>
-        <p class="lead">I build reliable firmware, playful terminal tools, and polished experiences. Explore a few of my
-          recent projects below.</p>
+
+        <p class="lead">I like turning ideas into practical embedded systems and dependable low-level software. Here are
+          a few projects I’ve built.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="about.html">About Me</a>
           <a class="btn btn-ghost" href="resume.html">View Resume</a>
@@ -72,7 +73,7 @@
       <div class="section-header">
         <p class="eyebrow">Projects</p>
         <h2>Hands-on Projects That Blend Hardware and Software</h2>
-        <p class="lead">A snapshot of weekend experiments and polished utilities I use to hone my skills.
+        <p class="lead">A collection of experiments and personal projects I’ve built to sharpen my skills.
         </p>
       </div>
 
@@ -112,8 +113,9 @@
             <div>
               <h3>Terminal-based text editor</h3>
               <p>A minimalist text editor that reads raw keystrokes, maintains a live on-screen buffer, and uses a
-                linked-list core for near-instant inserts and deletes at the cursor. Built with careful boundary checks
-                and a clean header/API for easy extension.</p>
+                linked-list core for near-instant cursor inserts and deletes. Built with robust boundary checks and a
+                clean, extensible header/API. Microbenchmarked at ~0.05 µs per insert and ~0.02 µs per backspace
+                (100k–500k operations, excluding rendering).</p>
               <ul class="pill-list" aria-label="Key capabilities">
                 <li>Raw terminal input with responsive redraws</li>
                 <li>Linked-list core for smooth cursor edits</li>

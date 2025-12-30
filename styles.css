@@ -488,7 +488,7 @@ main {
 
 
 .about-text {
-  text-indent: 1.5em;
+  
   text-align: justify;
   /* straighten both edges */
   text-justify: inter-word;
@@ -501,7 +501,7 @@ main {
   /* comfy reading */
   max-width: 70ch;
   /* readable line length */
-  margin: 0 auto;
+  margin: 20px auto;
   /* center the block */
 }
 
