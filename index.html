@@ -5,8 +5,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
 
   <title>Projects | Nathan Hunt</title>
 
@@ -26,8 +24,9 @@
         <div class="nav-item has-dropdown">
           <a href="index.html#cubesat" class="nav-link">UMass CubeSat</a>
           <div class="dropdown" role="menu" aria-label="CubeSat shortcuts">
-            <a href="index.html#cubesat_work_1" class="dropdown-link"><b>FILLER</b></a>
-            <a href="index.html#cubesat_work_2" class="dropdown-link"><b>FILLER</b></a>
+            <a href="index.html#cubesat_work_pcu" class="dropdown-link">Power Control Unit</a>
+            <a href="index.html#cubesat_work_pdu" class="dropdown-link">Power Delivery Unit</a>
+            <a href="index.html#cubesat_work_2" class="dropdown-link">Radiation Paper</a>
           </div>
         </div>
         <div class="nav-item has-dropdown">
@@ -67,48 +66,56 @@
     <section class="projects" id="cubesat" aria-label="UMass CubeSat work">
       <div class="section-header">
         <h2>UMass CubeSat</h2>
-        <p class="lead"><b>FILLER</b></p>
+        <p class="lead">Designing and building power electronics for a student-led CubeSat mission.</p>
       </div>
 
-      <article class="project-card" id="cubesat_work_1">
+      <article class="project-card" id="cubesat_work_pcu">
         <div class="card-meta">
-
-          <span><b>FILLER</b></span>
+          <span>Embedded Systems</span>
+          <span>ATmega128A</span>
         </div>
         <div class="project-body">
           <figure class="project-media">
-            <img src="images/CubeSat_Images/AtMegaDevBoard.png" alt="FILLER" loading="lazy" decoding="async" />
-            <figcaption><b>FILLER</b></figcaption>
+            <img class="expandable" src="images/CubeSat_Images/AtMegaDevBoard.png"
+              alt="ATmega128A development board for the Power Control Unit" loading="lazy" decoding="async" />
+            <figcaption>PCU development board prototype.</figcaption>
           </figure>
           <div>
-            <h3><b>Power Controle Unit</b></h3>
-            <p><b>FILLER</b></p>
+            <h3>Power Control Unit Dev Board</h3>
+            <p>Developed and wrote custom drivers for the Power Control Unit development board. Based on the
+              ATmega128A, this will be used to test power
+              systems prior to the creation of the unified BMS/PDU system. For the real flight, we will use the ATmegaS128,
+              which is a drop-in rad-hard alternative.</p>
             <ul class="capability-list" aria-label="Key capabilities">
-              <li><b>FILLER</b></li>
-              <li><b>FILLER</b></li>
-              <li><b>FILLER</b></li>
+              <li>Custom firmware drivers for power management and telemetry</li>
+              <li>Drop-in migration path to rad-hard 128S for flight hardware</li>
+              <li>Prototype validation platform for unified BMS/PDU development</li>
             </ul>
           </div>
         </div>
       </article>
 
-      <article class="project-card" id="cubesat_work_1">
+      <article class="project-card" id="cubesat_work_pdu">
         <div class="card-meta">
-
-          <span><b>FILLER</b></span>
+          <span>Power Electronics</span>
+          <span>PCB Design</span>
         </div>
         <div class="project-body">
           <figure class="project-media">
-            <img src="images/CubeSat_Images/PDU-TestBoard.png" alt="FILLER" loading="lazy" decoding="async" />
-            <figcaption><b>FILLER</b></figcaption>
+            <img class="expandable" src="images/CubeSat_Images/PDU-TestBoard.png"
+              alt="Power Delivery Unit test board with load switching circuitry" loading="lazy" decoding="async" />
+            <figcaption>PDU test board for load switching validation.</figcaption>
           </figure>
           <div>
-            <h3><b>Power Delivery Unit</b></h3>
-            <p><b>FILLER</b></p>
+            <h3>Power Delivery Unit</h3>
+            <p>Designed the Power Delivery Unit that routes regulated power from the BMS to each satellite
+              subsystem. The PDU provides individually switched and current-limited output channels, allowing
+              the flight computer to enable or disable subsystems on demand and isolate faults before they
+              propagate to the main bus. The board provides 3.3 V, 5 V, and 12 V rails.</p>
             <ul class="capability-list" aria-label="Key capabilities">
-              <li><b>FILLER</b></li>
-              <li><b>FILLER</b></li>
-              <li><b>FILLER</b></li>
+              <li>Independent load switches with overcurrent protection per channel</li>
+              <li>Software-controllable subsystem power enable/disable</li>
+              <li>Bus voltage monitoring and latch-up recovery logic</li>
             </ul>
           </div>
         </div>
@@ -122,8 +129,9 @@
           </div>
           <div class="project-body">
             <figure class="project-media">
-              <img src="" alt="Radiation assurance research paper cover" loading="lazy" decoding="async" />
-              <figcaption>Radiation assurance for CubeSat power systems.</figcaption>
+              <img src="images/CubeSat_Images/Radiation Assurance For CubeSat Power System_Presentation.png"
+                alt="Radiation assurance research paper presentation poster" loading="lazy" decoding="async" />
+              <figcaption>Click to read the full paper.</figcaption>
             </figure>
             <div>
               <h3>Radiation Assurance For CubeSat Power System</h3>
@@ -131,10 +139,11 @@
                 and its effects on the battery management system and power distribution unit. Evaluated TID, SEE, and
                 DDD threats, then prescribed component-grade and circuit-level mitigation strategies.</p>
               <ul class="capability-list" aria-label="Key capabilities">
-                <li>Modeled trapped-particle, solar-proton, and GCR hazards for our orbit</li>
+
                 <li>Assessed shielding effectiveness and SEE mitigation strategies</li>
                 <li>Recommended rad-tolerant parts with analog-preferred design policy</li>
               </ul>
+              <span class="read-paper-cta">Read the full paper &rarr;</span>
             </div>
           </div>
         </article>
@@ -210,6 +219,10 @@
       </div>
     </div>
   </footer>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <img id="lightbox-img" src="" alt="" />
+  </div>
 
   <script src="nav.js"></script>
 </body>
